@@ -1,4 +1,6 @@
-# This is a summary of profile-based homology searching
+# Profile-based homology searching and SLURM commands
+#### Authors: Joenilo II Paduhilao and Ursula Oggenfuss
+
 ## Introduction
 We use hidden Markov models, or profile HMMs, to gather sequences that are homologous to our proteins of interest. Since profile HMMs model evolutionary changes given an alignment, it is more sensitive than using one sequence alone in gathering homologues. However, databases, like PFAM, only include a subset of sequences (usually from protein databases like UniProt) to create their alignment for their profile HMMs. Thus, we are unsure whether it is sensitive to gather all candidate homologues against a database that is not well-represented in these protein databases, in particular Asgard archaea. It is to our best of interest to refine our profile HMMs in N iterations to make it more sensitive. In this way, we create our own profile HMMs tailored for own databases. 
 
@@ -111,7 +113,7 @@ Rule of thumb:
 
 At this point, keep on validating even deeper into the twilight zone hits. Once you pick up proteins lacking homology signal, record the last domain bit score (not the e-value). This becomes your cut-off for the first iteration. 
 
-Note: Record as extensive as you can. Use excel if that is more convenient for you. Use word document if you like screenshots. This will help the future you on why you made certain decisions or why those results actually show up. Results might now make sense now but sooner or later, it will.
+Note: Record as extensive as you can. Use excel if that is more convenient for you. Use word document if you like screenshots. This will help the future you on why you made certain decisions or why those results actually show up. Results might not make sense now but sooner or later, it will.
 
 4. We then filter our protein sequences by repeating the seqtk process in no.3. We do this by specifying the domain bit score threshold on the 9th column, not 8th (for e-value). Re-extract the sequences and count how many you got compared to the --max output.
 ```bash
